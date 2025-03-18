@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "Niffler - JSONP蜜罐嗅探器",
+  "version": "1.0",
+  "description": "嗅探并阻断JSONP蜜罐的嗅嗅神器",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "activeTab",
+    "alarms",
+    "notifications",
+    "tabs",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    },
+    "default_title": "Niffler",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": ["background/service-worker.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["content/content.js"],
+    "run_at": "document_start",
+    "all_frames": true
+  }],
+  "web_accessible_resources": [
+    "icons/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "niffler@hogwarts",
+      "strict_min_version": "78.0"
+    }
+  }
+}
