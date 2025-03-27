@@ -26,15 +26,9 @@
     "default_popup": "popup/popup.html"
   },
   "background": {
-    "scripts": ["background/service-worker.js"],
+    "scripts": ["background.js"],
     "persistent": true
   },
-  "content_scripts": [{
-    "matches": ["*://*/*"],
-    "js": ["content/content.js"],
-    "run_at": "document_start",
-    "all_frames": true
-  }],
   "web_accessible_resources": [
     "icons/*"
   ],
