@@ -32,7 +32,10 @@
 ![image-20250318162931625](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250318162931625.png)
 
 ## 插件安装
-
+打开浏览器临时扩展管理界面：about:debugging#/runtime/this-firefox
+找到“临时加载附加组件” 添加下载的插件文件夹
+<img width="1125" alt="image" src="https://github.com/user-attachments/assets/1ab5a432-7fee-4c62-a489-7cb005f76206" />
+最后固定到工具栏中即可使用！
 
 
 
