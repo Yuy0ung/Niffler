@@ -27,13 +27,17 @@
 
 ![image-20250318163945729](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250318163945729.png)
 
-运行后，嗅嗅可以在后台检测当前网页发起的跨站请求，若具有jsonp接口特征的请求或对一些媒体网站请求数量过大，嗅嗅会对网站的请求进行拦截并发起告警：
+运行后，嗅嗅可以在后台检测当前网页发起的跨站请求，若具有jsonp接口特征的请求或对一些媒体网站请求数量过大，嗅嗅会对网站的请求进行拦截并发起告警:
 
-![image-20250318162931625](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250318162931625.png)
+* 弹窗告警：
+  ![image-20250405122946601](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250405122946601.png)
+
+* 消息告警：
+
+  ![image-20250318162931625](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250318162931625.png)
 
 ## 插件安装
-
-
-
-
-
+打开浏览器临时扩展管理界面：about:debugging#/runtime/this-firefox
+找到“临时加载附加组件” 添加下载的插件文件夹
+<img width="1125" alt="image" src="https://yuy0ung.oss-cn-chengdu.aliyuncs.com/1ab5a432-7fee-4c62-a489-7cb005f76206.png" />
+最后固定到工具栏中即可使用！

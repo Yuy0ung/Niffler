@@ -29,7 +29,8 @@ const WHITE_LIST = [
   '*.bing.com',
   '*.moonshot.com',
   '*.deepseek.com',
-  '*.n.com'
+  '*.n.com',
+  '*.github.com'
 ];
 
 // 预编译白名单正则表达式
@@ -135,7 +136,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       }
 
       // 关键修改：仅首次达到阈值时触发
-      if (state.counter === 3) { // 使用严格等于判断
+      if (state.counter === 4) { // 使用严格等于判断
         const detectedType = isJsonp ? 'JSONP参数' : '域名特征';
         const detectedValue = isJsonp 
           ? queryParams.find(p => JSONP_KEYWORDS.some(k => p.includes(k)))
