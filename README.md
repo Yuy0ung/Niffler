@@ -20,6 +20,7 @@
 嗅嗅是一款运行在firefox上的jsonp蜜罐被动扫描插件
 
 （工具可能影响日常网页感受，建议只在进行渗透测试时开启插件）
+
 Niffler is a JSONP honeypot passive scanner that runs on Firefox.
 (The tool may affect your regular web browsing experience. It is recommended to enable the add-on only during penetration testing.)
 ![](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/icon-96.png)
