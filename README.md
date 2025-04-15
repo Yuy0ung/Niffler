@@ -32,7 +32,7 @@ Niffler is a JSONP honeypot passive scanner that runs on Firefox.
 运行后，嗅嗅可以在后台检测当前网页发起的跨站请求，若具有jsonp接口特征的请求或对一些媒体网站请求数量过大，嗅嗅会对网站的请求进行拦截并发起告警:
 
 * 弹窗告警：
-  ![image-20250405122946601](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/image-20250405122946601.png)
+  ![328a1bd4d2595c2e5515af4552aee14b](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/328a1bd4d2595c2e5515af4552aee14b.png)
 
 * 消息告警：
 
