@@ -23,6 +23,7 @@
 
 Niffler is a JSONP honeypot passive scanner that runs on Firefox.
 (The tool may affect your regular web browsing experience. It is recommended to enable the add-on only during penetration testing.)
+
 ![](https://yuy0ung.oss-cn-chengdu.aliyuncs.com/icon-96.png)
 
 安装好扩展后，可以在浏览器左上角打开它：
